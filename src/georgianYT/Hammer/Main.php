@@ -22,14 +22,14 @@ class Main extends PluginBase implements Listener {
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label,array $args) : bool {
 		switch($cmd->getName()){
-			case "hammer":
+			case "§r§5§lhammer":
 				if($sender instanceof Player) {
 					if($sender->hasPermission("hammer.give")){
 						if(count($args) === 1){
 							$playerName = $this->getServer()->getPlayerExact($args[0]);
 							if($playerName instanceof Player){
-								$cp = Item::get(257, 0, 1);
-								$customcp = $cp->setCustomName(TextFormat::RED . "Hammer");
+								$cp = Item::get(383, 10, 0);
+								$customcp = $cp->setCustomName(TextFormat::RED . "§r§5§lhammer");
 								$playerName->getInventory()->addItem($customcp);
 							}
 						}
@@ -49,7 +49,7 @@ class Main extends PluginBase implements Listener {
 		$item = $event->getItem();
 		$block = $event->getBlock();
 		
-		if($item->getId() == 257 && $item->getCustomName() == TextFormat::RED . "Hammer"){
+		if($item->getId() == 383:10 && $item->getCustomName() == TextFormat::RED . "§r§5§lhammer"){
 			$level = $player->getLevel();
 			for($count = 0; $count >= -2; $count--){
 				$bpos = $level->getBlockIdAt($block->x + 1, $block->y + $count, $block->z);
